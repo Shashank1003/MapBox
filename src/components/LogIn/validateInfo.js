@@ -11,9 +11,12 @@ export default function validateInfo(values, database) {
             if (values.password === database[i].password) {
                 errors = {}
                 break
+            } else {
+                errors= {}
+                errors.password = "wrong password"
+                break
             }
         } else {
-            console.log(errors)
             errors.email = "invalid login id or password"
         }
     }
