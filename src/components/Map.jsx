@@ -2,6 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import { useState } from "react";
 import ReactMapGL, { GeolocateControl, Marker } from "react-map-gl";
+import "mapbox-gl/dist/mapbox-gl.css";
+import mapboxgl from "mapbox-gl";
+
+// eslint-disable-next-line import/no-webpack-loader-syntax
+mapboxgl.workerClass = require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
 
 // Get the default location from custom hook (useGeoLocation.js)
 // get precise location by Marker from ReactMapGL

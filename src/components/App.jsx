@@ -3,7 +3,7 @@ import LoginForm from "./LogIn/LoginForm";
 import SignUpForm from "./SignUp/SignUpForm";
 import Map from "./Map";
 import styled from "styled-components";
-import useGeoLocation from "../useGeoLocation";
+import useGeoLocation from "./useGeoLocation";
 
 const Container = styled.div`
   display: flex;
