@@ -1,9 +1,6 @@
 export default function validateInfo(values, database) {
     let errors = {}
-
-    if (!values.email) {
-        errors.email = "Email is required"
-    }
+    console.log(database)
 
     if (!values.password) {
         errors.password = "Password is required"
@@ -11,12 +8,20 @@ export default function validateInfo(values, database) {
 
     for (let i = 0; i < database.length; i++) {
         if (values.email === database[i].email) {
-            if (values.password !== database[i].password) {
-                errors.password = "Invalid login id or password"
+            if (values.password === database[i].password) {
+                console.log(database[i].password)
                 console.log(values.password)
+                errors = {}
+                break
             }
-            console.log(values.email)
+        } else {
+            console.log(errors)
+            errors.email = "invalid login id or password"
         }
+    }
+
+    if (!values.email) {
+        errors.email = "Email is required"
     }
 
     return errors;

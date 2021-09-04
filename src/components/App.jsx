@@ -41,7 +41,6 @@ function App() {
     setMyDatabase((preVal) => {
       return [...preVal, values];
     });
-    return console.log(myDatabase);
   };
 
   const logoutHandler = () => {

@@ -1,4 +1,7 @@
-import { useState, useEffect } from "react";
+import {
+  useState,
+  useEffect
+} from "react";
 
 // Data from signup form is stored in {values} which is later validated with "validate.js".
 // If no errors found i.e. errors === {}, allow submitting of form and store the data into local database
@@ -15,7 +18,10 @@ const useForm = (callback, validate) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const {
+      name,
+      value
+    } = e.target;
 
     setValues({
       ...values,
@@ -34,8 +40,7 @@ const useForm = (callback, validate) => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
       callback();
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [errors]);
+  }, [errors, callback, isSubmitting]);
 
   return {
     handleChange,
