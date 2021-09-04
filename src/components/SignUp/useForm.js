@@ -34,6 +34,7 @@ const useForm = (callback, validate) => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
       callback();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [errors]);
 
   return {
