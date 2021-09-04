@@ -9,8 +9,6 @@ export default function validateInfo(values, database) {
     for (let i = 0; i < database.length; i++) {
         if (values.email === database[i].email) {
             if (values.password === database[i].password) {
-                console.log(database[i].password)
-                console.log(values.password)
                 errors = {}
                 break
             }

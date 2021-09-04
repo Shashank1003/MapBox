@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ReactMapGL, { GeolocateControl, Marker } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import mapboxgl from "mapbox-gl";
@@ -50,7 +50,7 @@ const StyledGeolocate = styled(GeolocateControl)`
 `;
 
 function Map(props) {
-  const [viewPort, setViewPort] = useState({
+  const [viewport, setViewport] = useState({
     latitude: props.lat,
     longitude: props.lng,
     // center: coordinate,
@@ -62,6 +62,19 @@ function Map(props) {
     pitch: 50,
   });
 
+  const resizeHandler = () => {
+    setViewport((state) => ({
+      ...state,
+      width: window.innerWidth,
+      height: window.innerHeight,
+    }));
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", resizeHandler);
+    return () => window.removeEventListener("resize", resizeHandler);
+  });
+
   return (
     <MapWrapper>
       <ReactMapGL
@@ -69,9 +82,9 @@ function Map(props) {
         mapboxApiAccessToken={
           "pk.eyJ1Ijoic2hhc2hhbmsxMDMiLCJhIjoiY2t0NHVtdDRwMDJiZTJ1cGRyNHBoeWxteCJ9.7d99ngfMIUUF9hfEpP1Lzg"
         }
-        {...viewPort}
+        {...viewport}
         onViewportChange={(newView) => {
-          setViewPort(newView);
+          setViewport(newView);
         }}
       >
         <StyledGeolocate
