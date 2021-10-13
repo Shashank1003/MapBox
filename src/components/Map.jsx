@@ -80,7 +80,7 @@ function Map(props) {
       <ReactMapGL
         mapStyle={"mapbox://styles/mapbox/dark-v9"}
         mapboxApiAccessToken={
-          "pk.eyJ1Ijoic2hhc2hhbmsxMDMiLCJhIjoiY2t0NHVtdDRwMDJiZTJ1cGRyNHBoeWxteCJ9.7d99ngfMIUUF9hfEpP1Lzg"
+          "pk.eyJ1Ijoic2hhc2hhbmsxMDMiLCJhIjoiY2t1cDRzbHR5MGEzZDJ1czd4b3RiendpeiJ9.z7HVtO4Fc2lFrvsYT0mXPw"
         }
         {...viewport}
         onViewportChange={(newView) => {
